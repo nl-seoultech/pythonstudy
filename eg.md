@@ -22,3 +22,5 @@
     * guess(추측값)과 (x / guess) 의 평균을구한다
     * x와 guess가 충분히 정확한지 확인하고
     * 충분하지않다면 다시 연산 or 충분하다면 값 반환
+    * is_good_enough, average, improve 사용
+    * if문, abs, pow 등의 내장함수와 조건문 사용해야함.

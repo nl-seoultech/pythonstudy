@@ -14,6 +14,14 @@
     * [런타임 오류][error] (IOError, ZeroDivisionError, etc)
     * 논리 오류
  4. 함수와 변수를 섞어서 프로그램 작성하기
+ 5. 조건문과 함수 (2주차)
+ 6. string 관련 연산
+ 7. 각종 자료형?
+    * `dict`
+    * `list`
+    * `generator`
+    * `<type 'type'>`
+    * `tuple`
  
    
    

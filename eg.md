@@ -24,3 +24,4 @@
     * 충분하지않다면 다시 연산 or 충분하다면 값 반환
     * is_good_enough, average, improve 사용
     * if문, abs, pow 등의 내장함수와 조건문 사용해야함.
+    * 재귀도 써야되는구나..

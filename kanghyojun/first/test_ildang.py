@@ -1,7 +1,7 @@
 def ildang(hour):
-    sigup = 5000
-    all_sigup = hour * sigup
-    return all_sigup - tax(all_sigup)
+    foo = 5000
+    all_foo = hour * foo
+    return all_foo - tax(all_foo)
 
 
 def tax(price):

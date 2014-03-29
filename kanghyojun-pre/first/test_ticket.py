@@ -10,7 +10,7 @@ def cost(price):
 
 
 def profit(price):
-    return 5 * attendee(price) - cost(price)
+    return price * attendee(price) - cost(price)
 
 
 def test_attendee():
@@ -24,4 +24,4 @@ def test_cost():
 
 
 def test_profit():
-    assert 489.6 == profit(4.9)
+    assert 476.1 == profit(4.9)

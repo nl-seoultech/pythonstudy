@@ -9,7 +9,7 @@ def owner_loss(price):
 
 
 def owner_profit(price):
-    return (people_per_price(price) * 5) - owner_loss(price) 
+    return (people_per_price(price) * price) - owner_loss(price) 
 
 
 def test_people_per_price():
@@ -22,8 +22,7 @@ def test_owner_loss():
 
 def test_owner_profit():
     assert 415.2 == owner_profit(5)
-    assert 489.6 == owner_profit(4.9)
-
+    assert 476.1 == owner_profit(4.9)
 
 def test_result():
     l = [4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9]

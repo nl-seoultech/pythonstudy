@@ -1,5 +1,5 @@
-def sum_(a, b):
-    return a + b
+def sum_(c, b):
+    return c + b
 
 
 def test_sum1():

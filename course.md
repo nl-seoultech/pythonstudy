@@ -22,9 +22,8 @@
     * `generator`
     * `<type 'type'>`
     * `tuple`
- 
-   
-   
- [htdp]: http://htdp.org
- [error]: http://docs.python.org/2/library/exceptions.html
- [doc-python]: http://docs.python.org/2.7/
+
+
+[htdp]: http://htdp.org
+[error]: http://docs.python.org/2/library/exceptions.html
+[doc-python]: http://docs.python.org/2.7/

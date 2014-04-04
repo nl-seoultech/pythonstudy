@@ -25,3 +25,37 @@
     * is_good_enough, average, improve 사용
     * if문, abs, pow 등의 내장함수와 조건문 사용해야함.
     * 재귀도 써야되는구나..
+
+### 5 - 조건문과 함수
+
+ 1. 각종 구간 나타내는 함수 만들기
+    * [0, 5]
+    * (0, 5)
+    * [0, 5)
+ 2. 간단한 2차방정식 x에 값이 유효한지 판단하기
+    * x^2-2x+1=0
+    * x^-9=0
+ 3. if ~ elif ~ else
+    * 은행 이자 프로그램 - $1000 이하이면 4%의 이자, $5000 달러 미만이면 4.5%의 이자 $5000 이상이면 5%의 이자
+ 4. 근의 공식 이용해서 `ax^2 + bx + c`의 해의 근의 갯수 알아내기
+ 5. inline if ( a =  4 if True else 5)
+ 6. C에서 삼항연산 따라해보기 ( a =  4 or 5 , a = 0 and 4)
+ 7. 'a is not None'
+
+### 6 - string 관련 연산
+
+ 1. [unicode][what-is-unicode] ? [utf-8][wiki-utf8]?
+ 2. `<type basestring>`
+    * `<type 'unicode'>`
+    * `<type 'str'>`
+ 3. `dir('hello world')`
+    * `.format`
+    * `.join`
+    * `.replace`
+    * `.startswith`
+    * `.endswith`
+    * `.split`
+
+
+ [what-is-unicode]: http://www.unicode.org/standard/translations/korean.html
+ [wiki-utf8]: http://en.wikipedia.org/wiki/UTF-8

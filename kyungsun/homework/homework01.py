@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 def test_interest():
-    assert interest(500 )== 20
+    assert interest(500) == 20
     assert interest(1000) == 40
     assert interest(1500) == 67.5
     assert interest(5000) == 250

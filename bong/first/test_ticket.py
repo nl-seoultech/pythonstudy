@@ -13,7 +13,7 @@ def owner_profit(price):
 
 
 def test_people_per_price():
-    assert 126.0 == people_per_price(1)
+    assert 720 == people_per_price(1)
 
 
 def test_owner_loss():

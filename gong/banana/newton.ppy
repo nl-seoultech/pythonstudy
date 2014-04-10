@@ -1,0 +1,41 @@
+def improve(origin, guess):
+    return average(guess, origin / float(guess) )
+
+
+
+def good_enough(origin, improved):
+    return abs(origin - pow(guess, 2)) < 0.0001
+
+
+
+def average(x,y):
+    return (x + y) / 2.0
+
+
+
+def sqrt_(guess, origin)
+    if good_enough(guess, origin)
+        return guess
+    else
+        return sqrt_( improve(guess, origin), origin)
+
+
+
+def test_improve():
+    assert 1.5 == improve(1,2)
+
+
+
+def test_average():
+    assert 1.5 == average(1,2)
+
+
+
+def test_good_enough():
+    assert good_enough(1, 1.0001)
+    assert not good_enough(1, 1.1)
+
+
+
+def test_sqrt_():
+    assert 1.414 == round(sqrt_(1,2), 3)

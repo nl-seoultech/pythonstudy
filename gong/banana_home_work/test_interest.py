@@ -1,4 +1,5 @@
-
+""" declare function 
+"""
 def interest(deposit):
     if 0 <= deposit <= 1000:
         return deposit * 0.04
@@ -10,6 +11,8 @@ def interest(deposit):
         return False
 
 
+""" test function
+"""
 def test_interest():
     assert 40 == interest(1000)
     assert False == interest(-10)

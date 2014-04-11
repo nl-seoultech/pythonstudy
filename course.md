@@ -27,11 +27,11 @@
     * `list` 반복
     * `dict.iteritems`, `dict.keys`
     * `break`, `continue`
- 8.5. `for` 팁
-    * `enumerate`
-    * `zip`
-    * `reversed`
-    * `sorted`
+    * 8.5! `for` 팁
+       * `enumerate`
+       * `zip`
+       * `reversed`
+       * `sorted`
  9. lambda
  10. list comprehension
     * `map`, `filter`, `reduce`

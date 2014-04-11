@@ -22,6 +22,21 @@
     * `generator`
     * `<type 'type'>`
     * `tuple`
+    * `set`
+ 8. python 의 `for`
+    * `list` 반복
+    * `dict.iteritems`, `dict.keys`
+    * `break`, `continue`
+ 8.5. `for` 팁
+    * `enumerate`
+    * `zip`
+    * `reversed`
+    * `sorted`
+ 9. lambda
+ 10. list comprehension
+    * `map`, `filter`, `reduce`
+ 11. 데코레이터
+
 
 
  [htdp]: http://htdp.org

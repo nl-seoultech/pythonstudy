@@ -55,6 +55,7 @@
     * `.startswith`
     * `.endswith`
     * `.split`
+ 4. `help()`
 
 
 끝!

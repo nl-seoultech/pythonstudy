@@ -40,6 +40,9 @@
     `interest(1000) == 4`
     `interest(4999) == 4.5`
  4. 근의 공식 이용해서 `ax^2 + bx + c`의 해의 근의 갯수 알아내기
+ 5. inline if ( a =  4 if True else 5)
+ 6. C에서 삼항연산 따라해보기 ( a =  4 or 5 , a = 0 and 4)
+ 7. 'a is not None'
 
 ### 6 - string 관련 연산
 
@@ -54,6 +57,10 @@
     * `.startswith`
     * `.endswith`
     * `.split`
+ 4. `help()`
+
+
+끝!
 
 
  [what-is-unicode]: http://www.unicode.org/standard/translations/korean.html

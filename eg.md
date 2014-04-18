@@ -59,6 +59,106 @@
     * `.split`
  4. `help()`
 
+### 8 - `for`
+
+`list` 반복하기
+
+```python
+for x in ['a', 'b', 'c']:
+    print x
+```
+
+`dict` 반복하기
+
+```python
+for k, v in {'a': 1, 'b': 2}.items():
+    print k, v
+````
+
+`break` 나 `continue`
+
+```python
+for x in xrange(1, 10):
+    if x % 2 == 0:
+        continue
+    if x == 0:
+        break
+    print x
+```
+
+`enumerate`는 리스트에 인덱스를 가지고올수있다.
+
+
+```python
+for i, x in enumerate(['a', 'b', 'c']):
+    print 'index: %d, item: %d' % (i, x)
+```
+
+`zip`은 두개의 리스트를 합쳐서 `tuple`로 반환한다.
+
+```python
+a = ['a', 'b', 'c']
+b = [1, 2, 3]
+assert [('a', 1), ('b', 2), ('c', 3)] == zip(a, b)
+```
+
+`sorted`, `reversed` 는 반복가능한(iterative)한 자료들을 정렬할때 사용함.
+
+### 9 lamba
+
+익명함수, `lambda` 키워드를 사용해서 사용가능.
+
+```
+>>> lambda x: x * x
+<function <lambda> at 0x1054e01b8>
+>>> _(2)
+4
+```
+
+`sorted`의 `key` 파라미터를 이용해서 복잡한 자료 정렬하기.
+
+
+```python
+a = ['c', 'b', 'a']
+b = [2, 1, 3]
+assert [('c', 2), ('b', 1), ('a', 3)] == zip(a, b)
+sorted_zip = sorted(zip(a, b), key=lambda x: x[0])
+assert [('a', 3), ('b', 1), ('c', 2)] == sorted_zip
+sorted_zip = sorted(zip(a, b), key=lambda x: x[1])
+assert [('b', 1), ('c', 2), ('a', 3)] == sorted_zip
+```
+
+### 10 list comprehension
+
+```python
+[x for x in ['a', 'b', 'c']]
+```
+
+`if`도 사용가능하고 이중 `for`, 삼중 `for`도 사용가능하다.
+
+```python
+[x for x in xrange(1, 10) if x % 2 == 0]
+```
+
+`map`은 첫번째 파라미터로 함수를받고 두번째인자로 반복가능한 자료를 받는다.
+
+```python
+assert [0, 1, 4, 9, 16 ... , 81] == map(lambda x: x * x, xrange(1, 10))
+```
+
+`filter`은 첫번째 파라미터로 함수를받고 함수가 true일때,
+두번째 인자(반복가능한 자료)의 아이템을 반환한다.
+
+```python
+assert [1, 3, 5, 7, 9] == filter(lambda x: x % 2, xrange(1, 10))
+```
+
+`reduce`는 첫번째 인자에 함수를 실행시켜서 두번째 인자의 앞
+인자부터 함수를 실행시킨결과를 반환한다.
+
+```python
+assert 55 == reduce(lambda x, y: x + y, xrange(1, 11))
+```
 
 끝!
 

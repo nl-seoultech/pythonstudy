@@ -35,8 +35,10 @@
  9. lambda
  10. list comprehension
     * `map`, `filter`, `reduce`
- 11. 데코레이터
-
+ 11. 파라미터를 넘기는 다양한 방법
+ 12. 데코레이터
+ 13. class
+ 14. module
 
 
  [htdp]: http://htdp.org

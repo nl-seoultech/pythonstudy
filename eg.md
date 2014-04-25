@@ -336,6 +336,10 @@ fn(1) # decorator(a=1)(fn)(1)
 
 ### 13 class
 
+ - 클래스 이름은 `PascalCase`로 적습니다.
+ - 모든 클래스의 메소드는 `self`를 첫번째 인자로 받습니다. (자바에서 `this` 같은거)
+ - 생성자는 `__init__`로 정의할수있습니다. 근데 자바마냥 오버로딩은 못해요.
+ - 상속은 `class Human(Animal)` 같은 방식으로 받습니다. 물론 여러개도 받을수있습니다. `class HyoJun(Human, Animal)` 같이
 
  [what-is-unicode]: http://www.unicode.org/standard/translations/korean.html
  [wiki-utf8]: http://en.wikipedia.org/wiki/UTF-8

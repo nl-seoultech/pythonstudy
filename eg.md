@@ -59,8 +59,290 @@
     * `.split`
  4. `help()`
 
+### 8 - `for`
+
+`list` 반복하기
+
+```python
+for x in ['a', 'b', 'c']:
+    print x
+```
+
+`dict` 반복하기
+
+```python
+for k, v in {'a': 1, 'b': 2}.items():
+    print k, v
+````
+
+`break` 나 `continue`
+
+```python
+for x in xrange(1, 10):
+    if x % 2 == 0:
+        continue
+    if x == 0:
+        break
+    print x
+```
+
+`enumerate`는 리스트에 인덱스를 가지고올수있다.
+
+
+```python
+for i, x in enumerate(['a', 'b', 'c']):
+    print 'index: %d, item: %d' % (i, x)
+```
+
+`zip`은 두개의 리스트를 합쳐서 `tuple`로 반환한다.
+
+```python
+a = ['a', 'b', 'c']
+b = [1, 2, 3]
+assert [('a', 1), ('b', 2), ('c', 3)] == zip(a, b)
+```
+
+`sorted`, `reversed` 는 반복가능한(iterative)한 자료들을 정렬할때 사용함.
+
+### 9 lamba
+
+익명함수, `lambda` 키워드를 사용해서 사용가능.
+
+```
+>>> lambda x: x * x
+<function <lambda> at 0x1054e01b8>
+>>> _(2)
+4
+```
+
+`sorted`의 `key` 파라미터를 이용해서 복잡한 자료 정렬하기.
+
+
+```python
+a = ['c', 'b', 'a']
+b = [2, 1, 3]
+assert [('c', 2), ('b', 1), ('a', 3)] == zip(a, b)
+sorted_zip = sorted(zip(a, b), key=lambda x: x[0])
+assert [('a', 3), ('b', 1), ('c', 2)] == sorted_zip
+sorted_zip = sorted(zip(a, b), key=lambda x: x[1])
+assert [('b', 1), ('c', 2), ('a', 3)] == sorted_zip
+```
+
+### 10 list comprehension
+
+```python
+[x for x in ['a', 'b', 'c']]
+```
+
+`if`도 사용가능하고 이중 `for`, 삼중 `for`도 사용가능하다.
+
+```python
+[x for x in xrange(1, 10) if x % 2 == 0]
+```
+
+`map`은 첫번째 파라미터로 함수를받고 두번째인자로 반복가능한 자료를 받는다.
+
+```python
+assert [0, 1, 4, 9, 16 ... , 81] == map(lambda x: x * x, xrange(1, 10))
+```
+
+`filter`은 첫번째 파라미터로 함수를받고 함수가 true일때,
+두번째 인자(반복가능한 자료)의 아이템을 반환한다.
+
+```python
+assert [1, 3, 5, 7, 9] == filter(lambda x: x % 2, xrange(1, 10))
+```
+
+`reduce`는 첫번째 인자에 함수를 실행시켜서 두번째 인자의 앞
+인자부터 함수를 실행시킨결과를 반환한다.
+
+```python
+assert 55 == reduce(lambda x, y: x + y, xrange(1, 11))
+```
 
 끝!
+
+
+### 11 파라미터를 넘기는 다양한 방법
+
+`list`를 unpack 할 수 있음
+
+```python
+a = [1, 2, 3]
+def x(a, b, c):
+    assert 1 == a
+    asssert 2 == b
+    assert 3 == c
+x(*a)
+```
+
+사실은 이렇겐 잘 안쓰고, 숫자가 정해지지않은 인자를 받을때 이렇게 씀
+
+```python
+def x(*args):
+    assert 1 == args[0]
+    assert 2 == args[1]
+    assert 3 == args[3]
+    assert isinstance(args, list)
+x(1, 2, 3)
+```
+
+인자의 이름으로도 함수에 인자를 넘길수있음.
+
+```python
+def x(a, key):
+    assert 1 == a
+    assert 'b' == key
+x(1, key='b')
+x(a=1, key='b')
+#x(a=1, 'b') => 이건 허용안됨, 이름으로 넘기는건 맨마지막에
+```
+
+`dict`도 unpack 할 수 있음.
+
+```python
+a = {'a': 1, 'b': 2, 'c': 3}
+def x(a, b, c):
+    assert 1 == a
+    assert 2 == b
+    assert 3 == c
+x(**a) #x(a=1, b=2, c=3) 으로 작동함
+```
+
+함수 인자에 default 값을 지정 가능
+
+```python
+def x(a, b, c=3):
+    assert 1 == a
+    assert 2 == b
+    assert 3 == c
+x(1, 2)
+```
+
+이것도 `*args`같이 사용가능함
+
+```python
+def x(**kwargs):
+    assert 1 == kwargs['a']
+    assert 2 == kwargs['b']
+    assert isinstance(kwargs, dict)
+x(a=1, b=2)
+```
+
+마지막으로 `*args`, `**kwargs`를 믹싱
+
+```python
+def x(*args, **kwargs):
+    assert 1 == args[0]
+    assert 1 == kwargs['a']
+x(1, a=1)
+```
+
+### 11 파라미터를 넘기는 다양한 방법
+
+`list`를 unpack 할 수 있음
+
+```python
+a = [1, 2, 3]
+def x(a, b, c):
+    assert 1 == a
+    asssert 2 == b
+    assert 3 == c
+x(*a)
+```
+
+사실은 이렇겐 잘 안쓰고, 숫자가 정해지지않은 인자를 받을때 이렇게 씀
+
+```python
+def x(*args):
+    assert 1 == args[0]
+    assert 2 == args[1]
+    assert 3 == args[3]
+    assert isinstance(args, list)
+x(1, 2, 3)
+```
+
+인자의 이름으로도 함수에 인자를 넘길수있음.
+
+```python
+def x(a, key):
+    assert 1 == a
+    assert 'b' == key
+x(1, key='b')
+x(a=1, key='b')
+#x(a=1, 'b') => 이건 허용안됨, 이름으로 넘기는건 맨마지막에
+```
+
+`dict`도 unpack 할 수 있음.
+
+```python
+a = {'a': 1, 'b': 2, 'c': 3}
+def x(a, b, c):
+    assert 1 == a
+    assert 2 == b
+    assert 3 == c
+x(**a) #x(a=1, b=2, c=3) 으로 작동함
+```
+
+함수 인자에 default 값을 지정 가능
+
+```python
+def x(a, b, c=3):
+    assert 1 == a
+    assert 2 == b
+    assert 3 == c
+x(1, 2)
+```
+
+이것도 `*args`같이 사용가능함
+
+```python
+def x(**kwargs):
+    assert 1 == kwargs['a']
+    assert 2 == kwargs['b']
+    assert isinstance(kwargs, dict)
+x(a=1, b=2)
+```
+
+마지막으로 `*args`, `**kwargs`를 믹싱
+
+```python
+def x(*args, **kwargs):
+    assert 1 == args[0]
+    assert 1 == kwargs['a']
+x(1, a=1)
+```
+
+### 12 데코레이터
+
+사용방법, high order function?
+
+```python
+@decorator
+def fn(x):
+    print x
+
+fn(1) # decorator(fn)(1)
+
+
+@decorator(a=1)
+def fn(x):
+    print x
+
+fn(1) # decorator(a=1)(fn)(1)
+```
+
+디버그할때 뭔가 이상하게 찍힌다. `functools.wraps` 사용해봅시다
+
+### 13 class
+
+ - 클래스 이름은 `PascalCase`로 적습니다.
+ - 모든 클래스의 메소드는 `self`를 첫번째 인자로 받습니다. (자바에서 `this` 같은거)
+ - 생성자는 `__init__`로 정의할수있습니다. 근데 자바마냥 오버로딩은 못해요.
+ - 상속은 `class Human(Animal)` 같은 방식으로 받습니다. 물론 여러개도 받을수있습니다. `class HyoJun(Human, Animal)` 같이
+
+ [what-is-unicode]: http://www.unicode.org/standard/translations/korean.html
+ [wiki-utf8]: http://en.wikipedia.org/wiki/UTF-8
 
 
  [what-is-unicode]: http://www.unicode.org/standard/translations/korean.html

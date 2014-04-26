@@ -238,6 +238,112 @@ def x(*args, **kwargs):
 x(1, a=1)
 ```
 
+### 11 파라미터를 넘기는 다양한 방법
+
+`list`를 unpack 할 수 있음
+
+```python
+a = [1, 2, 3]
+def x(a, b, c):
+    assert 1 == a
+    asssert 2 == b
+    assert 3 == c
+x(*a)
+```
+
+사실은 이렇겐 잘 안쓰고, 숫자가 정해지지않은 인자를 받을때 이렇게 씀
+
+```python
+def x(*args):
+    assert 1 == args[0]
+    assert 2 == args[1]
+    assert 3 == args[3]
+    assert isinstance(args, list)
+x(1, 2, 3)
+```
+
+인자의 이름으로도 함수에 인자를 넘길수있음.
+
+```python
+def x(a, key):
+    assert 1 == a
+    assert 'b' == key
+x(1, key='b')
+x(a=1, key='b')
+#x(a=1, 'b') => 이건 허용안됨, 이름으로 넘기는건 맨마지막에
+```
+
+`dict`도 unpack 할 수 있음.
+
+```python
+a = {'a': 1, 'b': 2, 'c': 3}
+def x(a, b, c):
+    assert 1 == a
+    assert 2 == b
+    assert 3 == c
+x(**a) #x(a=1, b=2, c=3) 으로 작동함
+```
+
+함수 인자에 default 값을 지정 가능
+
+```python
+def x(a, b, c=3):
+    assert 1 == a
+    assert 2 == b
+    assert 3 == c
+x(1, 2)
+```
+
+이것도 `*args`같이 사용가능함
+
+```python
+def x(**kwargs):
+    assert 1 == kwargs['a']
+    assert 2 == kwargs['b']
+    assert isinstance(kwargs, dict)
+x(a=1, b=2)
+```
+
+마지막으로 `*args`, `**kwargs`를 믹싱
+
+```python
+def x(*args, **kwargs):
+    assert 1 == args[0]
+    assert 1 == kwargs['a']
+x(1, a=1)
+```
+
+### 12 데코레이터
+
+사용방법, high order function?
+
+```python
+@decorator
+def fn(x):
+    print x
+
+fn(1) # decorator(fn)(1)
+
+
+@decorator(a=1)
+def fn(x):
+    print x
+
+fn(1) # decorator(a=1)(fn)(1)
+```
+
+디버그할때 뭔가 이상하게 찍힌다. `functools.wraps` 사용해봅시다
+
+### 13 class
+
+ - 클래스 이름은 `PascalCase`로 적습니다.
+ - 모든 클래스의 메소드는 `self`를 첫번째 인자로 받습니다. (자바에서 `this` 같은거)
+ - 생성자는 `__init__`로 정의할수있습니다. 근데 자바마냥 오버로딩은 못해요.
+ - 상속은 `class Human(Animal)` 같은 방식으로 받습니다. 물론 여러개도 받을수있습니다. `class HyoJun(Human, Animal)` 같이
+
+ [what-is-unicode]: http://www.unicode.org/standard/translations/korean.html
+ [wiki-utf8]: http://en.wikipedia.org/wiki/UTF-8
+
 
  [what-is-unicode]: http://www.unicode.org/standard/translations/korean.html
  [wiki-utf8]: http://en.wikipedia.org/wiki/UTF-8

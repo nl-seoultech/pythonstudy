@@ -31,12 +31,12 @@ def type_discriminate(data):
 
 
 def test_type_discriminate():
-    assert "bool"	== type_discriminate(False)
-    assert "int" 	== type_discriminate(1)
-    assert "float"	== type_discriminate(1.1)
-    assert "str" 	== type_discriminate("abc")
-    assert "unicode"	== type_discriminate(u"tiffany")
-    assert "type"	== type_discriminate(str)
+    assert "bool" == type_discriminate(False)
+    assert "int"  == type_discriminate(1)
+    assert "float" == type_discriminate(1.1)
+    assert "str"  == type_discriminate("abc")
+    assert "unicode" == type_discriminate(u"tiffany")
+    assert "type" == type_discriminate(str)
 
     """
     assert "NoneType"	== type_discriminate(None)

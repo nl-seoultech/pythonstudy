@@ -42,6 +42,7 @@
  15. `with` statement
     * file io
     * contextlib
+ 16. exception handling
 
 
  [htdp]: http://htdp.org
